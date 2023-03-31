@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>download.jfif</file>
+        <file>../../../Desktop/QT/download (1).jfif</file>
+    </qresource>
+</RCC>
