@@ -5,6 +5,8 @@
 #include "dialog.h"
 #include "vegetarian.h"
 #include "dairy.h"
+#include <vector>
+#include <string>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,6 +14,14 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 }
+
+struct itemFav
+{
+    std::string itemName;
+    int itemFav;
+};
+
+std:: vector<itemFav> v;
 
 MainWindow::~MainWindow()
 {
@@ -73,5 +83,57 @@ void MainWindow::on_pushButton_4_clicked()
     Dairy piz2;
     piz2.setModal(true);
     piz2.exec();
+}
+
+
+void MainWindow::on_pushButton_12_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    std::string str;
+    for(int i=0; i < v.size(); i++)
+    {
+        str = v[i].itemName;
+                  ui->listWidget->addItem(str.c_str());
+    }
+}
+
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    itemFav id;
+    id.itemName = "Pepperoni Pizza";
+    id.itemFav = 1;
+
+    v.push_back(id);
+}
+
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    itemFav id;
+    id.itemName = "Gluten Free Pizza";
+    id.itemFav = 2;
+
+    v.push_back(id);
+}
+
+
+void MainWindow::on_pushButton_10_clicked()
+{
+    itemFav id;
+    id.itemName = "Vegan Pizza";
+    id.itemFav = 3;
+
+    v.push_back(id);
+}
+
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    itemFav id;
+    id.itemName = "Dairy-Free Pizza";
+    id.itemFav = 4;
+
+    v.push_back(id);
 }
 
